@@ -1,3 +1,4 @@
+require "pry-byebug"
 =begin
 11 numbers (Ace = 1)
 A Face values
@@ -5,24 +6,45 @@ A Suit
 =end
 
 class Card
-  def that_card_has_a_suit(card.suit)
-    card_hash = {
-      diamonds: [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king]
-      clubs: [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king]
-      hearts: [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king]
-      spades: [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king]
+  def initialize(rank, suit)
+    @rank = rank
+    @suit = suit
+    @rank_value_hash = {
+      :A=>1,
+      2=>2, 
+      3=>3, 
+      4=>4, 
+      5=>5, 
+      6=>6, 
+      7=>7, 
+      8=>8,
+      9=>9,
+      10=>10,
+      :J=>11,
+      :Q=>12,
+      :K=>13
     }
-    puts card.suit
   end
 
-  def that_card_has_a_rank(card.rank)
-    rank_hash = {
-      [ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, jack, queen, king]
-    }
-    puts card.rank
+  def rank_value
+    @rank_value_hash[@rank]
   end
 
+  def suit
+    @suit 
+  end
 
+  def rank
+    @rank
+  end
+
+  def ace
+    @ace
+  end
+  
+  def greater_than?(other_card)
+    rank_value > other_card.rank_value
+  end
 
 end
 
