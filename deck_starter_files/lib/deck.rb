@@ -1,3 +1,10 @@
+=begin
+A Deck has:
+52 Cards
+4 Suits - Hearts, Spades, Diamonds, Clubs
+13 Ranks (lowest to highest) - Ace-King
+=end
+
 require_relative "card"
 require "pry-byebug"
 
@@ -11,7 +18,7 @@ class Deck
     deck_builder
   end
 
-  def deck_builder
+  def deck_builder 
     @ranks.each do |rank|
       @suits.each do |suit|
         card = Card.new(rank, suit)
@@ -26,21 +33,6 @@ class Deck
 
 
 
-  def draw
-    Card.new(:A, :clubs) 
-  end
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -48,9 +40,3 @@ class Deck
 
 end
 
-=begin
-A Deck has:
-52 Cards
-4 Suits - Hearts, Spades, Diamonds, Clubs
-13 Ranks (lowest to highest) - Ace-King
-=end

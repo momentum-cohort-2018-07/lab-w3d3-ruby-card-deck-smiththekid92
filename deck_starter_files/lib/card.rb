@@ -1,4 +1,3 @@
-require "pry-byebug"
 =begin
 11 numbers (Ace = 1)
 A Face values
