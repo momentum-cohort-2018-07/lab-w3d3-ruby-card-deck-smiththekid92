@@ -14,29 +14,33 @@ class Deck
     @deck = []
     #need to loop ranks and suits
     @ranks = [:A, 2, 3, 4, 5, 6, 7, 8, 9, 10, :J, :Q, :K]
-    @suits = [:clubs, :diamonds, :hearts, :spades]
+    @suits = [:clubs, :diamonds, :hearts, :spades] #order per tests
+    # deck_builder
     deck_builder
   end
-
+  
   def deck_builder 
-    @ranks.each do |rank|
-      @suits.each do |suit|
-        card = Card.new(rank, suit)
+    @suits.each do |suit|
+      @ranks.each do |rank|
+        #^^ loops deck to print rank and suit of cards per hash
+        # binding.pry
+        card = Card.new(rank,suit)
         @deck << card
+      # puts @deck
       end
     end
   end
 
-  def cards_left
-    52
+  def draw
+  @deck.shift
   end
 
+  def shuffle
+  @deck.shuffle!
+  end
 
-
-
-
-
-
+  def cards_left
+  @deck.length
+  end
 
 end
-
